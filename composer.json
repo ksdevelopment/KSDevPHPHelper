@@ -1,0 +1,14 @@
+{
+    "name": "ksdev/ksdevphphelper",
+    "description": "PHP Helper functions used by KS Development ApS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kasper B. Svendsen",
+            "email": "ks@ksvendsen.dk"
+        }
+    ],
+    "autoload": {
+        "files": ["src/array-utils.php"]
+    }
+}

@@ -59,6 +59,17 @@ function remapKey($keyFrom, $keyTo, &$array)
 }
 
 /**
+ * Remap af set of keys
+ * @param $keys
+ * @param $array
+ */
+function remapKeys($keys, &$array) {
+    foreach($keys as $to => $from) {
+        remapKey($from, $to, $array);
+    }
+}
+
+/**
  * Make ISO8601 dates from a list of keys
  * @param array $keys
  * @param $data

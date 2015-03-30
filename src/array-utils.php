@@ -28,3 +28,45 @@ function getKey($key, $storage, $default = null) {
         error_log(sprintf("getKey trying to fetch key from unknown storage '%s' ", gettype($storage)), E_NOTICE);
     }
 }
+
+
+/**
+ * Map a array with key-value array
+ * @param $keys
+ * @param array $array
+ * @return array
+ */
+function mapArray($keys, array $array) {
+    $data = [];
+    foreach($keys as $new => $key) {
+        if(isset($array[$key]))
+            $data[$new] = $array[$key];
+    }
+
+    return $data;
+}
+
+/**
+ * Map a key to a new name in a array
+ * @param $keyFrom
+ * @param $keyTo
+ * @param $array
+ */
+function remapKey($keyFrom, $keyTo, &$array)
+{
+    $array[$keyTo] = $array[$keyFrom];
+    unset($array[$keyFrom]);
+}
+
+/**
+ * Make ISO8601 dates from a list of keys
+ * @param array $keys
+ * @param $data
+ */
+function iso8601Dates(array $keys, &$data) {
+    foreach($keys as $key) {
+        if(array_key_exists($key, $data) && $data[$key]) {
+            $data[$key] = date("c", strtotime($data[$key]));
+        }
+    }
+}

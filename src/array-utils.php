@@ -54,8 +54,10 @@ function mapArray($keys, array $array) {
  */
 function remapKey($keyFrom, $keyTo, &$array)
 {
-    $array[$keyTo] = $array[$keyFrom];
-    unset($array[$keyFrom]);
+    if(array_key_exists($keyFrom, $array)) {
+        $array[$keyTo] = $array[$keyFrom];
+        unset($array[$keyFrom]);
+    }
 }
 
 /**

@@ -9,6 +9,9 @@
         }
     ],
     "autoload": {
-        "files": ["src/array-utils.php"]
+        "files": [
+            "src/number-utils.php",
+            "src/array-utils.php"
+        ]
     }
 }

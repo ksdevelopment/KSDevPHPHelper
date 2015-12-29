@@ -12,6 +12,9 @@
 
 /**
  * Quick for getting a key
+ *
+ * Should not be needed for with php 7
+ *
  * @param $key
  * @param array|object $storage
  * @param null $default

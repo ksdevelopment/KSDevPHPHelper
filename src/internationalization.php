@@ -11,3 +11,21 @@
 function dk_nf($value, $decimals = 0, $dec_point = ',', $thousands_sep = '.') {
     return is_numeric($value) ? number_format($value, $decimals, $dec_point, $thousands_sep) : '';
 }
+
+
+/**
+ * Returns dk input formatting string (usage in input fields e.t.c with dk format)
+ * @param $value
+ * @param null $decimals
+ * @return mixed|string
+ */
+function dk_floatval($value, $decimals = null) {
+    if (!is_numeric($value))
+        return '';
+
+    if ($decimals !== null) {
+        return rtrim(rtrim((string)number_format($value, $decimals, ".", ""), "0"), ".");
+    } else {
+        return str_replace('.', ',', (string)floatval($value));
+    }
+}

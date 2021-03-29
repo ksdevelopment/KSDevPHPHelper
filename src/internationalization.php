@@ -14,6 +14,17 @@ function dk_nf($value, $decimals = 0, $dec_point = ',', $thousands_sep = '.') {
 
 
 /**
+ * @param $value
+ * @param string $prefix
+ * @param string $sufflix
+ * @return string
+ */
+function dk_money($value, $prefix = '', $sufflix = '') {
+    return trim($prefix . ' ' . dk_nf($value, 2) . ' ' . $sufflix);
+}
+
+
+/**
  * Returns dk input formatting string (usage in input fields e.t.c with dk format)
  * @param $value
  * @param null $decimals
